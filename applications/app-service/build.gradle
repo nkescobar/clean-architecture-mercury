@@ -1,0 +1,19 @@
+apply plugin: 'org.springframework.boot'
+
+
+dependencies {
+    //PROJECT DEPENDENCIES
+    implementation project(":domain-model")
+    implementation project(":domain-usecase")
+    implementation project(":domain-utility")
+    implementation project(":entry-points-api-rest")
+
+}
+
+
+
+task explodedJar(type: Copy) {
+    with jar
+    into "${buildDir}/exploded"
+}
+

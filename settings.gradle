@@ -1,0 +1,35 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'mercury'
+include 'app-service'
+project(':app-service').projectDir = file('./applications/app-service')
+include 'model'
+project(':model').projectDir = file('./domain/model')
+include 'usecase'
+project(':usecase').projectDir = file('./domain/usecase')
+include 'utility'
+project(':utility').projectDir = file('./domain/utility')
+include 'api-rest'
+project(':api-rest').projectDir = file('./infrastructure/entry-points/api-rest')
+include 'jpa-repository'
+project(':jpa-repository').projectDir = file('./infrastructure/driven-adapters/jpa-repository')
+
+FileTree potentialModules = fileTree(rootProject.projectDir) {
+    include '**/*.gradle'
+    exclude 'base.gradle', 'build', 'buildSrc', '**/gradle', 'settings.gradle', '/src', '/build.gradle', 'out', '/build.gradle'
+}
+potentialModules.forEach {
+    String subprojectName = it.parentFile.name
+    String subprojectPath = ':'.concat(subprojectName)
+    include subprojectPath
+    def subproject = findProject("${subprojectPath}")
+    subproject.name = it.parentFile.parentFile.name.concat('-').concat(subprojectName)
+    subproject.projectDir = it.parentFile
+    subproject.buildFileName = it.name
+}
