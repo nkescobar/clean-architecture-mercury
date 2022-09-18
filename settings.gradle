@@ -11,6 +11,8 @@ include 'app-service'
 project(':app-service').projectDir = file('./applications/app-service')
 include 'model'
 project(':model').projectDir = file('./domain/model')
+include 'service'
+project(':service').projectDir = file('./domain/service')
 include 'usecase'
 project(':usecase').projectDir = file('./domain/usecase')
 include 'utility'

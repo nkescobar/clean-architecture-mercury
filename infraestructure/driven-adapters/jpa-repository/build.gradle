@@ -1,7 +1,14 @@
 
 dependencies {
+    implementation project(":domain-model")
+    implementation project(":domain-service")
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'mysql:mysql-connector-java'
+    implementation 'org.mapstruct:mapstruct:1.3.1.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.3.1.Final'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
 }
 
 bootJar { enabled = false}

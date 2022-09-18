@@ -1,13 +1,17 @@
 apply plugin: 'org.springframework.boot'
-
+ext {
+    springCloudVersion = '2020.0.4'
+}
 
 dependencies {
     //PROJECT DEPENDENCIES
     implementation project(":domain-model")
     implementation project(":domain-usecase")
     implementation project(":domain-utility")
+    implementation project(":domain-service")
+    implementation project(":driven-adapters-jpa-repository")
     implementation project(":entry-points-api-rest")
-
+    implementation 'org.springframework.boot:spring-boot-starter'
 }
 
 
@@ -15,5 +19,11 @@ dependencies {
 task explodedJar(type: Copy) {
     with jar
     into "${buildDir}/exploded"
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
+    }
 }
 

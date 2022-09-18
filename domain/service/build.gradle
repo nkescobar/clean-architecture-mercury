@@ -1,8 +1,6 @@
 
 dependencies {
     implementation project(":domain-model")
-    implementation project(":domain-service")
-
 }
 
 bootJar { enabled = false}
