@@ -12,6 +12,8 @@ dependencies {
     implementation project(":driven-adapters-jpa-repository")
     implementation project(":entry-points-api-rest")
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
 }
 
 

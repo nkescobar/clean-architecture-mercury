@@ -1,4 +1,4 @@
-package com.makingapp.mercury.usecase;
+package com.makingapp.mercury.service;
 
 import com.makingapp.mercury.model.Category;
 

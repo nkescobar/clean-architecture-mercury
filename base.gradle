@@ -22,6 +22,13 @@ subprojects {
         mavenLocal()
         mavenCentral()
     }
+
+    buildscript{
+        ext{
+            springFrameworkVersion = '5.3.15'
+        }
+    }
+
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter'
         developmentOnly 'org.springframework.boot:spring-boot-devtools'

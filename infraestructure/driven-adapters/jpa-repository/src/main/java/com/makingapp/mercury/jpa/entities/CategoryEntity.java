@@ -1,4 +1,4 @@
-package com.makingapp.mercury.model;
+package com.makingapp.mercury.jpa.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
