@@ -1,5 +1,6 @@
 package com.makingapp.mercury.api;
 import com.makingapp.mercury.model.Category;
+import com.makingapp.mercury.response.model.CustomResponse;
 import com.makingapp.mercury.usecase.CategoryUseCase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,15 +26,21 @@ public class CategoryController {
     }
 
     @GetMapping("/categorias")
-    public ResponseEntity<List<Category>> getCategory() {
-        log.debug("Metodo categorias");
-        System.out.println(" Metodo categorias = " );
-
-        List<Category> categories = categoryUseCase.get();
-        System.out.println(categories);
-
-        ResponseEntity<List<Category>> response = new ResponseEntity<List<Category>>(categories, HttpStatus.ACCEPTED);
-        return response;
+    public ResponseEntity<CustomResponse<List<Category>>> getCategory() {
+        CustomResponse<List<Category>> response = new CustomResponse();
+        try {
+            List<Category> categories = categoryUseCase.findAllCategories();
+            response.setResponse(categories);
+            response.setMessage("Respuesta exitosa.");
+        } catch (Exception e) {
+            response.setMessage("Error al consultar categorias");
+            response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+            log.error("Error al consultar categorias", e.getMessage());
+            e.getStackTrace();
+            return new ResponseEntity(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        response.setStatus(HttpStatus.OK);
+        return new ResponseEntity(response, HttpStatus.OK);
     }
 
 

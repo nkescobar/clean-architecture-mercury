@@ -23,10 +23,7 @@ public class CategoryAdapter implements CategoryService {
     }
     @Override
     public List<Category> findAllCategories() {
-        List<Category> categories = new ArrayList<>();
-        for (CategoryEntity categoryEntity : categoryRepository.findAll()) {
-            categories.add(categoryMapper.toModel(categoryEntity));
-        }
-        return categories;
+        return this.categoryMapper.listEntityToModel(
+                categoryRepository.findAll());
     }
 }

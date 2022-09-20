@@ -8,15 +8,12 @@ import java.util.List;
 
 @Component
 public class CategoryUseCase {
-
     private final CategoryService service;
-
 
     public CategoryUseCase(CategoryService service) {
         this.service = service;
     }
-
-    public List<Category> get() {
+    public List<Category> findAllCategories() {
        return service.findAllCategories();
     }
 }
