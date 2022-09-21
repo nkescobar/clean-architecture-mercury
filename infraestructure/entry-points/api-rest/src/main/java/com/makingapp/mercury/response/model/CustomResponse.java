@@ -6,7 +6,6 @@ public class CustomResponse<T> {
     private String message;
     private String error;
     private HttpStatus status;
-    private String path;
     private T response;
 
     public String getMessage() {
@@ -31,14 +30,6 @@ public class CustomResponse<T> {
 
     public void setStatus(HttpStatus status) {
         this.status = status;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
     }
 
     public T getResponse() {

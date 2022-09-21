@@ -16,4 +16,18 @@ public class CategoryUseCase {
     public List<Category> findAllCategories() {
        return service.findAllCategories();
     }
+    public Category findById(Long id) {
+        return service.findById(id);
+    }
+    public Category save(Category category) {
+        return service.save(category);
+    }
+    public Category update(Category category, Long id) {
+        return service.update(category, id);
+    }
+    public void delete( Long id) {
+       service.delete(id);
+    }
+
+
 }
