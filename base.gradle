@@ -42,6 +42,8 @@ subprojects {
                     'Implementation-Version': project.version)
         }
     }
+
+
 }
 
 bootJar { enabled = false}
