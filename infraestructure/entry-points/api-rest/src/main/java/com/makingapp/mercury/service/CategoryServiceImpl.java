@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class CategoryServiceImpl {
     private final CategoryUseCase categoryUseCase;
-    private static final Logger log = LoggerFactory.getLogger(CategoryController.class);
+    private static final Logger log = LoggerFactory.getLogger(CategoryServiceImpl.class);
 
     public CategoryServiceImpl(CategoryUseCase categoryUseCase) {
         this.categoryUseCase = categoryUseCase;
