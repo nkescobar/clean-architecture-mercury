@@ -3,4 +3,4 @@ dependencies {
     implementation project(":domain-model")
 }
 
-bootJar { enabled = false}
+bootJar { enabled = true}
